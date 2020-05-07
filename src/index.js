@@ -69,7 +69,7 @@ export const objectToFormData = (obj, cfg, fd, pre) => {
         }
       }
 
-      const key = pre ? pre + '[' + prop + ']' : prop;
+      const key = pre ? pre + prop : prop;
 
       objectToFormData(value, cfg, fd, key);
     });
