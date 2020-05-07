@@ -73,6 +73,9 @@ export const objectToFormData = (obj, cfg, fd, pre) => {
 
       objectToFormData(value, cfg, fd, key);
     });
+  } else if (isFile(obj) || isBlob(obj)) {
+    const ext = obj.type.split('/')[1];
+    fd.append(pre, obj, 'file.'+ext);
   } else {
     fd.append(pre, obj);
   }
